@@ -8,6 +8,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    
+    <script type="text/javascript" src="/ajax/jquery/jquery-1.6.2.min.js"></script>
+            <script type="text/javascript" src="/ajax/jquery/plugins/jquery.random_plugin.js"></script>
+            <script type="text/javascript" src="/includes/some_other_scripts.js"></script>
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -43,16 +47,15 @@
   </div><!-- /.container-fluid -->
 </nav>
     
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
+
 <div class="container">
-    <div>
-        <%= yield %>
-    </div>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <%= yield %>
 </div>
     
 </body>

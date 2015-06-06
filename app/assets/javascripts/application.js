@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function timeout() {
+    setTimeout(function(){ $("alert alert-success").remove(); }, 3000);
+}
