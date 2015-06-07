@@ -19,12 +19,13 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @post = Post.find(params[:id])
   end
 
   # POST /posts
   # POST /posts.json
   def create
-      @post = Post.new(post_params,:post_id=>current_user.id)
+      @post = Post.new(post_params,:user_id=>current_user.id)
 
     respond_to do |format|
       if @post.save

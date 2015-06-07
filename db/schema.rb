@@ -11,18 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606104647) do
+ActiveRecord::Schema.define(version: 20150606105745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "posts", force: :cascade do |t|
-    t.string   "title"
-    t.string   "image"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false, index: {name: "index_users_on_email", unique: true}
@@ -37,6 +29,15 @@ ActiveRecord::Schema.define(version: 20150606104647) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.string   "image"
+    t.text     "description"
+    t.integer  "user_id",     index: {name: "fk__posts_user_id"}, foreign_key: {references: "users", name: "fk_posts_user_id", on_update: :no_action, on_delete: :no_action}
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
