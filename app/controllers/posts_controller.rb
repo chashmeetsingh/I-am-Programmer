@@ -20,14 +20,18 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     #post = Post.where(:"id = ? AND user_id = ?", [params[:id], current_user.id])
-   
+
     #Post.where(:"id = ? AND user_id = ?", [1, 1])
   end
 
   # POST /posts
   # POST /posts.json
   def create
-      @post = Post.new(post_params,:user_id=>current_user.id)
+
+    p = post_params
+    p[:user_id] = current_user.id
+    puts p.inspect
+      @post = Post.new(p)
 
     respond_to do |format|
       if @post.save
