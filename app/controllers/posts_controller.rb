@@ -19,7 +19,9 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
+    #post = Post.where(:"id = ? AND user_id = ?", [params[:id], current_user.id])
+   
+    #Post.where(:"id = ? AND user_id = ?", [1, 1])
   end
 
   # POST /posts
