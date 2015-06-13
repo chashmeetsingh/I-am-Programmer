@@ -13,14 +13,26 @@
  *= require_tree .
  *= require_self
  */
-.span3{width:120px}
+.span3{width: 240px}
 
-.side-bar{width:300px;overflow:hidden;margin-left:20px;margin-top:30px;float:left}
+.side-bar{width:400px;overflow:hidden;margin-left:20px;margin-top:30px;float:left}
 
 .ls_profile{border-radius:3px 3px 3px 3px;border:1px solid #c67a0c;box-shadow:0 1px 0 #fff inset;padding:10px;background:#ffb61a;background-size:100%;background:-webkit-gradient(linear,50% 0,50% 100%,color-stop(0,#ffb61a),color-stop(100%,#e69219));background:-webkit-linear-gradient(top,#ffb61a,#e69219);background:-moz-linear-gradient(top,#ffb61a,#e69219);background:-o-linear-gradient(top,#ffb61a,#e69219);background:linear-gradient(top,#ffb61a,#e69219);margin-bottom:10px;color:#fff}
 
-.ls_blue{background:#4ca2ea;background-size:100%;background:-webkit-gradient(linear,50% 0,50% 100%,color-stop(0,#4ca2ea),color-stop(100%,#2872cd));background:-webkit-linear-gradient(top,#4ca2ea,#2872cd);background:-moz-linear-gradient(top,#4ca2ea,#2872cd);background:-o-linear-gradient(top,#4ca2ea,#2872cd);background:linear-gradient(top,#4ca2ea,#2872cd);border:1px solid #29558b;box-shadow:0 1px 0 #85bbff inset}.ls_green{background:#1cda2a;background-size:100%;background:-webkit-gradient(linear,50% 0,50% 100%,color-stop(0,#1cda2a),color-stop(100%,#09a814));background:-webkit-linear-gradient(top,#1cda2a,#09a814);background:-moz-linear-gradient(top,#1cda2a,#09a814);background:-o-linear-gradient(top,#1cda2a,#09a814);background:linear-gradient(top,#1cda2a,#09a814);border:1px solid #0f9018;box-shadow:0 1px 0 #0fff20 inset}
+.ls_blue{background:#4ca2ea;background-size:100%;background:-webkit-gradient(linear,50% 0,50% 100%,color-stop(0,#4ca2ea),color-stop(100%,#2872cd));background:-webkit-linear-gradient(top,#4ca2ea,#2872cd);background:-moz-linear-gradient(top,#4ca2ea,#2872cd);background:-o-linear-gradient(top,#4ca2ea,#2872cd);background:linear-gradient(top,#4ca2ea,#2872cd);border:1px solid #29558b;box-shadow:0 1px 0 #85bbff inset}
+
+.ls_green{background:#1cda2a;background-size:100%;background:-webkit-gradient(linear,50% 0,50% 100%,color-stop(0,#1cda2a),color-stop(100%,#09a814));background:-webkit-linear-gradient(top,#1cda2a,#09a814);background:-moz-linear-gradient(top,#1cda2a,#09a814);background:-o-linear-gradient(top,#1cda2a,#09a814);background:linear-gradient(top,#1cda2a,#09a814);border:1px solid #0f9018;box-shadow:0 1px 0 #0fff20 inset}
 
 .ls_profile_info{float:left}
 
 .clearfix{*zoom:1}
+
+.size{
+  font-size: medium   
+}
+
+.img-size {
+    width: 100px;
+    height: 50px;
+    padding-top: 30px;
+}

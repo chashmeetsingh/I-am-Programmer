@@ -11,28 +11,25 @@
                 <h2><%= link_to post.title, post %></h2>
                 <%= post.description %>
                 <br>
-              <% if user_signed_in? %>
-              <% if current_user %>    
-                    <%= link_to 'Show', post %>
-                    <%= link_to 'Edit', edit_post_path(post) %>
-                    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-                <% end %> 
-              <% end %>
             <% end %>
           </div>
         </div>
     </div>
-    <div class="col-xs-2"></div>
+    <div class="col-xs-1"></div>
     <% if user_signed_in? %>
-    <div class="span3 col-xs-4">
-	   <div class="side-bar">
-    	    <div class="ls_profile ls_blue">
-                <img src="http://iamprogrammer.net/images/membersprofilepic/noprofilepicture.jpg">
-                <div class="ls_profile_info">
-                    <h3><a href="#"><%= current_user.email %></a></h3>
+    <div class="span3 col-xs-5">
+	   <div class="side-bar"> 
+           <div class="ls_profile ls_blue">
+               <div> 
+               <div class="col-xs-4">
+                    <img class="img-size" src="https://www.google.co.in/images/srpr/logo11w.png">
+                </div>
+                <div class="col-xs-8 ls_profile_info">
+                    <h3 class="size"><a href="#"><%= current_user.email %></a></h3>
                     <p>Points : 0</p>
                     <p>Total Views : 0</p>
                 </div>
+           </div>
                 <div class="clearfix"></div>
            </div>
        </div>

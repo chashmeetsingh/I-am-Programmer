@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150606105745) do
     t.string   "image"
     t.text     "description"
     t.integer  "user_id",     index: {name: "fk__posts_user_id"}, foreign_key: {references: "users", name: "fk_posts_user_id", on_update: :no_action, on_delete: :no_action}
+    t.integer  "likes"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
