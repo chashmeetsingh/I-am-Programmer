@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+.mar70{
+	margin-top: 70px;
+}
 .span3{width: 240px}
 
 .side-bar{width:400px;overflow:hidden;margin-left:20px;margin-top:30px;float:left}
@@ -35,4 +38,8 @@
     width: 100px;
     height: 50px;
     padding-top: 30px;
+}
+
+.pad{
+	padding-top: 100px;
 }

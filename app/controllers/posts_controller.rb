@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-    
+
   # GET /posts
   # GET /posts.json
   def index
@@ -19,19 +19,12 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    #post = Post.where(:"id = ? AND user_id = ?", [params[:id], current_user.id])
-
-    #Post.where(:"id = ? AND user_id = ?", [1, 1])
   end
 
   # POST /posts
   # POST /posts.json
   def create
-
-    p = post_params
-    p[:user_id] = current_user.id
-    puts p.inspect
-      @post = Post.new(p)
+    @post = Post.new(post_params)
 
     respond_to do |format|
       if @post.save
@@ -49,7 +42,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.'}
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -76,6 +69,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-        params.require(:post).permit(:title, :image, :description)
+      params[:post]
     end
 end
