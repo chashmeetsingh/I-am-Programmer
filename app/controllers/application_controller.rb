@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   def confirmed_login
   	unless session[:user_id]
   		flash[:notice]="Please Login"
-  		redirect_to(:action=>'login')
+  		redirect_to(:controller=>'auth',:action=>'login')
   		return false
   	else
   		return true
