@@ -13,6 +13,7 @@ class AuthController < ApplicationController
   	user.save
 
   	if user.save
+      flash[:notice] = "Signed Up successfully !"
   		redirect_to(:action=>'login')
   	else
   		flash[:notice] = "Invalid Details"
@@ -42,10 +43,12 @@ class AuthController < ApplicationController
   end	
   
   def attempt_change
-    @user = User.find(session[:user_id])
-    @user.password = params[:password]
-    @user.save
-    flash[:notice] = "Password changed successfully"
+    user = User.find(session[:user_id])
+    if user.update_attributes(:password => params[:password]) && params[:password]==params[:password_check]
+      flash[:notice] = "Password Changed Successfully !!"
+    else
+      flash[:notice] = "Passwords do not match"
+    end
     redirect_to '/settings'
   end 
 

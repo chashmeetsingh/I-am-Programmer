@@ -2,7 +2,6 @@
   <head>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-    <link rel="stylesheet" type="text/css" href="css/test.css">
     <meta name="viewport" content="initial-scale=1" />
   </head>
   <body layout="column" ng-controller="AppCtrl">
@@ -21,11 +20,15 @@
       </md-tab>
       <md-tab label="Password">
         <md-content class="md-padding">
-          <%= form_for :user , url: {controller:'auth',action:'attempt_change'} do |f| %>
-            <%= f.label :password %><br>
-            <%= f.text_field :password %><br><br>
-            <%= f.submit 'Change Password' %>
-          <% end %>  
+          <div class="padd wrapper">  
+            <%= form_tag("/auth/attempt_change") do %>
+              <%= label_tag :password, "New Password" , :class => 'pad-27' %>
+              <%= password_field_tag :password %><br>
+              <%= label_tag :password_check, "Retype Password", :class => 'pad-10'  %>
+              <%= password_field_tag(:password_check) %><br>
+              <%= submit_tag "Save Password", :class => "btn btn-success" %>
+            <% end %>  
+          </div>
         </md-content>
       </md-tab>
     </md-tabs>
@@ -36,7 +39,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
-    <script src="js/test.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js"></script>
   </body>
