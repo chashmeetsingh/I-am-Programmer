@@ -52,6 +52,32 @@ class AuthController < ApplicationController
     redirect_to '/settings'
   end 
 
+  def update
+    user = User.find(session[:user_id])
+    if user.update_attributes(:full_name => params[:full_name],:email => params[:email],:country => params[:country],
+      :about => params[:about],:website => params[:website])
+      flash[:notice] = "Settings Updated !!"
+    else
+      puts user.errors.full_messages
+      flash[:notice] = "Could Not Be Saved !!"
+    end
+    redirect_to '/settings'   
+  end
+
+  def profile_pic
+    user = User.find(session[:user_id])
+    if user.update(:avatar => params[:new_pic])
+      flash[:notice] = "Profile Picture updated !!"
+    else
+      user.errors.each do |f,x|
+        puts f,x
+      end
+      flash[:notice] = "Profile Picture could not be updated !!"
+    end
+    redirect_to '/settings/'+ user.username   
+  end
+  
+
   def user_params
   	params.require(:user).permit(:username,:password,:email)
   end

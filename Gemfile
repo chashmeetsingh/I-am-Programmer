@@ -22,13 +22,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'country-select'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem "paperclip"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -43,3 +43,9 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'figaro'
+gem 'unf'
+gem 'rmagick'

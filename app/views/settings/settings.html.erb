@@ -1,21 +1,54 @@
 <html lang="en" ng-app="StarterApp">
   <head>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
     <meta name="viewport" content="initial-scale=1" />
   </head>
   <body layout="column" ng-controller="AppCtrl">
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+      //Check if the current URL contains '#' 
+      if(document.URL.indexOf("#")==-1)
+      {
+      // Set the URL to whatever it was plus "#".
+      url = document.URL+"#";
+      location = "#";
+
+      //Reload the page
+      location.reload(true);
+
+      }
+      });
+    </script> 
     <div>
   <md-content class="md-padding">
     <md-tabs md-dynamic-height md-border-bottom>
       <md-tab label="Avatar">
         <md-content class="md-padding">
-          <h1 class="md-display-2">Avatar</h1>
+          <%= "Profile Picture" %>
+          
+          <%= image_tag User.find(session[:user_id]).avatar.url, size: '200x200' %><br>
+          <%= form_for :user,url: '/auth/profile_pic' do |f| %>            
+            <%= f.label :new_pic, "Upload Image" %>
+            <%= f.file_field :new_pic %>
+            <%= f.submit 'Update Picture' %>
+          <% end %> 
         </md-content>
       </md-tab>
       <md-tab label="Personal">
         <md-content class="md-padding">
-          <h1 class="md-display-2">Personal</h1>
+          <%= form_tag ('/auth/update') do %>
+              <%= label_tag :full_name , "Full Name" %>
+              <%= text_field_tag :full_name %><br>
+              <%= label_tag :email, "Email Id" %>
+              <%= email_field_tag :email , User.find(session[:user_id]).email %><br>
+              <%= label_tag :country , "Location" %>
+              <%= render 'form' %><br>
+              <%= label_tag :about , "About/Bio" %>
+              <%= text_field_tag :about %><br>
+              <%= label_tag :website , "Website" %>
+              <%= text_field_tag :website %><br>
+              <%= submit_tag 'Update Details' %>
+            <% end %>
         </md-content>
       </md-tab>
       <md-tab label="Password">
@@ -35,11 +68,6 @@
   </md-content>
 </div>
    
-    <!-- Angular Material Dependencies -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.js"></script>
+    
   </body>
 </html>
