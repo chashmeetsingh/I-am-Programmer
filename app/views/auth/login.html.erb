@@ -1,13 +1,11 @@
 Log In
 <script>
-  
-  </script>history.pushState(null, null, location.href);
+  history.pushState(null, null, location.href);
   window.onpopstate = function(event) {
       history.go(1);
-  };
-  
+  };  
 </script>
-
+  
 <%= form_tag("/auth/attempt_login") do %>
   <%= label_tag(:username, "Username") %>
   <%= text_field_tag(:username) %><br>
