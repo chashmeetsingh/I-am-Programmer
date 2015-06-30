@@ -16,7 +16,7 @@ class AuthController < ApplicationController
       flash[:notice] = "Signed Up successfully !"
   		redirect_to(:action=>'login')
   	else
-  		flash[:notice] = "Invalid Details"
+  		flash[:notice] = user.errors.full_messages
   		redirect_to(:action=>'signup')
   	end	
   end	
@@ -61,12 +61,12 @@ class AuthController < ApplicationController
       puts user.errors.full_messages
       flash[:notice] = "Could Not Be Saved !!"
     end
-    redirect_to '/settings'   
+    redirect_to '/settings/' + user.username   
   end
 
   def profile_pic
     user = User.find(session[:user_id])
-    if user.update(:avatar => params[:new_pic])
+    if user.update(pic_params)
       flash[:notice] = "Profile Picture updated !!"
     else
       user.errors.each do |f,x|
@@ -80,6 +80,10 @@ class AuthController < ApplicationController
 
   def user_params
   	params.require(:user).permit(:username,:password,:email)
+  end
+
+  def pic_params
+    params.require(:user).permit(:avatar)
   end
 
 end

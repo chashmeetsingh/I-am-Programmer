@@ -5,31 +5,24 @@
   <body layout="column" ng-controller="AppCtrl">
     <script type="text/javascript">
       $(document).ready(function(){
-
-      //Check if the current URL contains '#' 
       if(document.URL.indexOf("#")==-1)
       {
-      // Set the URL to whatever it was plus "#".
-      url = document.URL+"#";
-      location = "#";
-
-      //Reload the page
-      location.reload(true);
-
-      }
+        url = document.URL+"#";
+        location = "#";
+        location.reload(true);
+        }
       });
     </script> 
-    <div>
+ <div>
   <md-content class="md-padding">
     <md-tabs md-dynamic-height md-border-bottom>
       <md-tab label="Avatar">
         <md-content class="md-padding">
           <%= "Profile Picture" %>
-          
-          <%= image_tag User.find(session[:user_id]).avatar.url, size: '200x200' %><br>
+          <%= image_tag User.find(session[:user_id]).avatar , size: '200x200' %><br>
           <%= form_for :user,url: '/auth/profile_pic' do |f| %>            
-            <%= f.label :new_pic, "Upload Image" %>
-            <%= f.file_field :new_pic %>
+            <%= f.label :avatar, "Upload Image" %>
+            <%= f.file_field :avatar %>
             <%= f.submit 'Update Picture' %>
           <% end %> 
         </md-content>
@@ -38,15 +31,27 @@
         <md-content class="md-padding">
           <%= form_tag ('/auth/update') do %>
               <%= label_tag :full_name , "Full Name" %>
-              <%= text_field_tag :full_name %><br>
+              <% if User.find(session[:user_id]).full_name.nil? %>
+                <%= text_field_tag :full_name %><br>
+              <% else %>
+                  <%= text_field_tag :full_name , User.find(session[:user_id]).full_name %><br>
+              <% end %>    
               <%= label_tag :email, "Email Id" %>
               <%= email_field_tag :email , User.find(session[:user_id]).email %><br>
               <%= label_tag :country , "Location" %>
               <%= render 'form' %><br>
               <%= label_tag :about , "About/Bio" %>
-              <%= text_field_tag :about %><br>
+              <% if User.find(session[:user_id]).full_name.nil? %>
+                <%= text_field_tag :about %><br>
+              <% else %>
+                  <%= text_field_tag :about , User.find(session[:user_id]).about %><br>
+              <% end %>
               <%= label_tag :website , "Website" %>
-              <%= text_field_tag :website %><br>
+              <% if User.find(session[:user_id]).full_name.nil? %>
+                <%= text_field_tag :website %><br>
+              <% else %>
+                  <%= text_field_tag :website , User.find(session[:user_id]).website %><br>
+              <% end %>
               <%= submit_tag 'Update Details' %>
             <% end %>
         </md-content>
