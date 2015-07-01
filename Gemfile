@@ -43,6 +43,7 @@ group :development, :test do
   gem 'spring'
 end
 
+# Gems for image upload / download
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
