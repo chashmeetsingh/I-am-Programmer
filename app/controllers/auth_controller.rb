@@ -49,7 +49,7 @@ class AuthController < ApplicationController
     else
       flash[:notice] = "Passwords do not match"
     end
-    redirect_to '/settings'
+    redirect_to '/settings/' + user.username
   end 
 
   def update
