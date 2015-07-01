@@ -41,9 +41,7 @@
                     <h3 class="size"><a href="/profile/<%= User.find(session[:user_id]).username %>"><%= User.find(session[:user_id]).username %></a></h3>
                     <p>Total Views : <%= User.find(session[:user_id]).views %></p>
                     <% likes=0 %>
-                    <% User.find(session[:user_id]).posts.each do |po| %>
-                      <% likes+=po.likes %>
-                    <% end %>  
+                    
                     Total likes : <%= likes %>
                 </div>
            </div>

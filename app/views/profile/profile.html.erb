@@ -1,7 +1,4 @@
 Username: <%= @user1.username %><br>
 Views: <%= @user1.views %>
 <% likes=0 %><br>
-<% User.find(session[:user_id]).posts.each do |po| %>
-  <% likes+=po.likes %>
-<% end %>  
 Total likes : <%= likes %>

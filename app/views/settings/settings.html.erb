@@ -22,7 +22,7 @@
           <%= image_tag User.find(session[:user_id]).avatar , size: '200x200' %><br>
           <%= form_for :user,url: '/auth/profile_pic' do |f| %>            
             <%= f.label :avatar, "Upload Image" %>
-            <%= f.file_field :avatar %>
+            <%= f.file_field :avatar %><br>
             <%= f.submit 'Update Picture' %>
           <% end %> 
         </md-content>
