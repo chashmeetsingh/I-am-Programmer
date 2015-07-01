@@ -1,3 +1,10 @@
+<script type="text/javascript">
+  function change(){
+    var butt = document.getElementById("like_button");
+    if (butt.value=="Like") butt.value = "Unlike";
+    else butt.value = "Like";
+  };
+</script>
 
 <div class="row"> 
     <div class="col-xs-6">
@@ -11,9 +18,12 @@
                   <div class="col-xs-6">
                     <a href="<%= post_url(post) %>"><%= image_tag(post.image.profile_size.url) %></a>
                   </div>
-                  <div class="col-xs-6">  
+                  <div class="col-xs-1"></div>
+                  <div class="col-xs-5">  
                     <%= post.hash_tag %><br>   
-                    </div>
+                    <a href="/profile/<%= post.user.username %>">@<%= post.user.username %></a><br>
+                    <input class="btn btn-default btn-md" onclick="change()" type="button" value="Like" id="like_button"></input>
+                  </div>
                 </div>
           </div>
         </div> <% end %>
@@ -28,8 +38,8 @@
                   <%= image_tag User.find(session[:user_id]).avatar , size: '100x100' %>
                 </div>
                 <div class="col-xs-8 ls_profile_info">
-                    <h3 class="size"><a href="#"><%= User.find(session[:user_id]).username %></a></h3>
-                    <p>Total Views : 0</p>
+                    <h3 class="size"><a href="/profile/<%= User.find(session[:user_id]).username %>"><%= User.find(session[:user_id]).username %></a></h3>
+                    <p>Total Views : <%= User.find(session[:user_id]).views %></p>
                 </div>
            </div>
                 <div class="clearfix"></div>
