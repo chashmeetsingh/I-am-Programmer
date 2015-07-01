@@ -49,7 +49,7 @@ class AuthController < ApplicationController
     else
       flash[:notice] = "Passwords do not match"
     end
-    redirect_to '/settings/' + user.username
+    redirect_to '/settings'
   end 
 
   def update
@@ -61,7 +61,7 @@ class AuthController < ApplicationController
       puts user.errors.full_messages
       flash[:notice] = "Could Not Be Saved !!"
     end
-    redirect_to '/settings/' + user.username   
+    redirect_to '/settings'   
   end
 
   def profile_pic
@@ -74,7 +74,7 @@ class AuthController < ApplicationController
       end
       flash[:notice] = "Profile Picture could not be updated !!"
     end
-    redirect_to '/settings/'+ user.username   
+    redirect_to '/settings'  
   end
   
 

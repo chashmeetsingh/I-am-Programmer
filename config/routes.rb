@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root to: "posts#index"
   resources :posts
-  get '/settings/:username' => 'settings#settings'	
+  get '/settings' => 'settings#settings'
+  get '/profile/:username' => 'profile#profile'	
   match "/:controller(/:action(/:id))" , :via=>[:get,:post,:patch]
   
 end

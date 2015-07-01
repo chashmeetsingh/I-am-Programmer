@@ -7,8 +7,14 @@
             <h3 class="panel-title"><%= link_to post.title, post %></h3>
           </div>
           <div class="panel-body">
-                <a href="<%= post_url(post) %>"><%= image_tag(post.image.profile_size.url) %></a>
-                <%= post.hash_tag %><br>     
+                <div class="row">
+                  <div class="col-xs-6">
+                    <a href="<%= post_url(post) %>"><%= image_tag(post.image.profile_size.url) %></a>
+                  </div>
+                  <div class="col-xs-6">  
+                    <%= post.hash_tag %><br>   
+                    </div>
+                </div>
           </div>
         </div> <% end %>
     </div>
@@ -23,7 +29,6 @@
                 </div>
                 <div class="col-xs-8 ls_profile_info">
                     <h3 class="size"><a href="#"><%= User.find(session[:user_id]).username %></a></h3>
-                    <p>Points : 0</p>
                     <p>Total Views : 0</p>
                 </div>
            </div>
