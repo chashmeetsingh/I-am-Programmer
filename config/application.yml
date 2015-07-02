@@ -1,7 +1,1 @@
 
-AWS_ACCESS_KEY_ID: "AKIAJJ5475OLJRM4AFVQ"
-AWS_SECRET_ACCESS_KEY: "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"
-development:
-  AWS_BUCKET: net--development 
-production:
-  AWS_BUCKET: net--production
