@@ -1,0 +1,29 @@
+# app/views/likes/index.html.erb
+
+# show your flash messages
+<% flash.each do |name, msg| %>
+  <div class="alert <%= "alert-#{name}" %>">
+    <%= msg %>
+  </div>
+<% end %>
+
+<h1>posts you may or may not like</h1>
+# For each post
+<% @posts.each do |post| %>
+  <% unless @user.posts.include?(post) %> # Prob want to move this into a User instance method
+    # Create a like form if the user does not have a like for this post
+    <%= form_tag likes_path do %>
+      <%= hidden_field_tag 'post_id', post.id %>
+      # Clicking this sends a request: POST /likes with params of: post_id=123
+      <%= submit_tag "Like this post", :class => "like_button" %>
+    <% end %>
+  <% else %>
+    # Find the like. I'll admit there is probably a better way to do this but it's getting past my bed time. 
+    <% like = post.likes.where(:user_id => @user.id).first %>
+    # Destroy the like associated with this post and user
+    <div class="unlike_button">
+      # Clicking this sends a request to: DELETE /likes/123
+      <%= link_to "destroy like", likes_path(like.id), :method => :delete %>
+    </div>
+  <% end %>
+<% end %>
