@@ -3,8 +3,6 @@
     var butt = document.getElementById("like_button");
     if (butt.value=="Like") {
       butt.value = "Unlike";
-      <% like=Like.create(:user_id=>session[:user_id],:post_id=>post.id) %>
-      <% like.save %>
     }
     else {
       butt.value = "Like";
