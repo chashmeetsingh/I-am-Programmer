@@ -9,7 +9,9 @@ class AuthController < ApplicationController
   end
 
   def attempt_signup
-  	user = User.create(user_params)
+    par=user_params
+  	user = User.create(par)
+    user.views=0
   	user.save
 
   	if user.save
