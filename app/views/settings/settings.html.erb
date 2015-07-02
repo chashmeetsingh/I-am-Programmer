@@ -1,23 +1,5 @@
-<html lang="en" ng-app="StarterApp">
-  <head>
-    <meta name="viewport" content="initial-scale=1" />
-  </head>
-  <body layout="column" ng-controller="AppCtrl">
-    <script type="text/javascript">
-      $(document).ready(function(){
-      if(document.URL.indexOf("#")==-1)
-      {
-        url = document.URL+"#";
-        location = "#";
-        location.reload(true);
-        }
-      });
-    </script> 
- <div>
-  <md-content class="md-padding">
-    <md-tabs md-dynamic-height md-border-bottom>
-      <md-tab label="Avatar">
-        <md-content class="md-padding">
+
+
           <%= "Profile Picture" %>
           <%= image_tag User.find(session[:user_id]).avatar , size: '200x200' %><br>
           <%= form_for :user,url: '/auth/profile_pic' do |f| %>            
@@ -25,10 +7,8 @@
             <%= f.file_field :avatar %><br>
             <%= f.submit 'Update Picture' %>
           <% end %> 
-        </md-content>
-      </md-tab>
-      <md-tab label="Personal">
-        <md-content class="md-padding">
+
+
           <%= form_tag ('/auth/update') do %>
               <%= label_tag :full_name , "Full Name" %>
               <% if User.find(session[:user_id]).full_name.nil? %>
@@ -54,11 +34,8 @@
               <% end %>
               <%= submit_tag 'Update Details' %>
             <% end %>
-        </md-content>
-      </md-tab>
-      <md-tab label="Password">
-        <md-content class="md-padding">
-          <div class="padd wrapper">  
+
+
             <%= form_tag("/auth/attempt_change") do %>
               <%= label_tag :password, "New Password" , :class => 'pad-27' %>
               <%= password_field_tag :password %><br>
@@ -66,13 +43,3 @@
               <%= password_field_tag(:password_check) %><br>
               <%= submit_tag "Save Password", :class => "btn btn-success" %>
             <% end %>  
-          </div>
-        </md-content>
-      </md-tab>
-    </md-tabs>
-  </md-content>
-</div>
-   
-    
-  </body>
-</html>

@@ -14,24 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-var app = angular.module('StarterApp', ['ngMaterial']);
-
-app.controller('AppCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
-  $scope.toggleSidenav = function(menuId) {
-    $mdSidenav(menuId).toggle();
-  };
- 
-}]);
-
-function change(){
-    var butt = document.getElementById("like_button");
-    if (butt.value=="Like") {
-      butt.value = "Unlike";
-      like=Like.create(:post_id=>post.id,:user_id=>session[:user_id])
-      like.save
-    }
-    else {
-      butt.value = "Like";
-      Like.destroy(:post_id=>post.id,:user_id=>session[:user_id])
-    }
-  };

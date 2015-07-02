@@ -1,4 +1,16 @@
+<script type="text/javascript">
+  function change(){
+    var butt = document.getElementById("like_button");
+    if (butt.value=="Like") {
+      butt.value = "Unlike";
+     
+    }
+    else {
+      butt.value = "Like";
 
+    }
+  };
+</script>
 
 <div class="row"> 
     <div class="col-xs-6">
@@ -16,7 +28,7 @@
                   <div class="col-xs-5">  
                     <%= post.hash_tag %><br>   
                     <a href="/profile/<%= post.user.username %>">@<%= post.user.username %></a><br>
-                    <input class="btn btn-default btn-md" onclick="change();" type="button" value="Like" id="like_button"></input>
+                    <input class="btn btn-default btn-md" onclick="change()" type="button" value="Like" id="like_button"></input>
                   </div>
                 </div>
           </div>
