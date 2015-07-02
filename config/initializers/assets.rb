@@ -9,6 +9,7 @@ Rails.application.config.assets.precompile += %w( angular-aria.min.js )
 Rails.application.config.assets.precompile += %w( angular-material.min.css )
 Rails.application.config.assets.precompile += %w( cssmaterial.min.css )
 Rails.application.config.assets.precompile += %w( angular-mocks.js )
+Rails.application.config.assets.precompile += %w( angular-route.min.js )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
