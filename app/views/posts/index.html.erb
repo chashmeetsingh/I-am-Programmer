@@ -1,12 +1,40 @@
 <script type="text/javascript">
-  function change(){
+  function change(userid,postid){
     var butt = document.getElementById("like_button");
-    if (butt.value=="Like") {
-      butt.value = "Unlike";
+    if (butt.value=="Like"){
+      $.post("/api/check",
+            {
+                user_id: userid,
+                post_id: postid
+            },
+            function(data, status){
+                alert("Data: " + data + "\nStatus: " + status);
+                if(data==1){
+                   butt.value = "Unlike";
+                }
+                else{
+                    $.post("/api/like",
+                        {
+                            user_id: userid,
+                            post_id: postid
+                        },
+                        function(data, status){
+                            alert("Data: " + data + "\nStatus: " + status);
+                            butt.value = "Unlike";
+                        });   
+                }
+            });
     }
     else {
       butt.value = "Like";
-
+      $.post("/api/unlike",
+          {
+              user_id: userid,
+              post_id: postid
+          },
+          function(data, status){
+              alert("Data: " + data + "\nStatus: " + status);
+          }); 
     }
   };
 </script>
@@ -27,7 +55,7 @@
                   <div class="col-xs-5">  
                     <%= post.hash_tag %><br>   
                     <a href="/profile/<%= post.user.username %>">@<%= post.user.username %></a><br>
-                    <input class="btn btn-default btn-md" onclick="change()" type="button" value="Like" id="like_button"></input>
+                    <input class="btn btn-default btn-md" onload="check(<%= session[:user_id] %>,<%= post.id %>)" onclick="change(<%= session[:user_id] %>,<%= post.id %>)" type="button" value="Like" id="like_button"></input>
                   </div>
                 </div>
           </div>
