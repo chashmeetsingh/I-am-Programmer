@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @like=Like.find_by(:user_id=>session[:user_id])
   end
 
   # GET /posts/1

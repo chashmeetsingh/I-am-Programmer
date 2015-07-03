@@ -1,9 +1,9 @@
 class ApiController < ApplicationController
 	def check
 		if Like.find_by(:user_id=>params[:user_id],:post_id=>params[:post_id])
-			render text: 1
+			render json: 1
 		else
-			render text: 0	
+			render json: 0	
 		end
 	end
 

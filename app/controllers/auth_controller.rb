@@ -12,7 +12,7 @@ class AuthController < ApplicationController
     par=user_params
   	user = User.create(par)
     user.views=0
-    user.avatar='/images/medium/profile.jpg'
+    user.avatar = '/images/medium/profile.jpg'
   	user.save
 
   	if user.save
