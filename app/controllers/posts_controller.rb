@@ -7,13 +7,15 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @like=Like.find_by(:user_id=>session[:user_id])
-    user=User.find(session[:user_id])
-    posts = Post.where(:user_id=>user.id)
-    @likes=0
-    posts.each do |po|
-      like = Like.where(:post_id=>po.id)
-      if like  
-        @likes += like.count
+    if !session[:user_id].nil?
+      user=User.find(session[:user_id])
+      posts = Post.where(:user_id=>user.id)
+      @likes=0
+      posts.each do |po|
+        like = Like.where(:post_id=>po.id)
+        if like  
+          @likes += like.count
+        end
       end
     end
   end
