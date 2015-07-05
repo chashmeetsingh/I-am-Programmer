@@ -26,6 +26,8 @@ gem 'country-select'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'puma'
+gem 'carrierwave-ftp', :require => 'carrierwave/storage/ftp' # FTP only
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem "paperclip"
