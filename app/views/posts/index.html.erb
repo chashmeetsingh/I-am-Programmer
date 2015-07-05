@@ -67,7 +67,9 @@
                     <% else %>
                       <% stat="Like" %> 
                     <% end %>      
+                  <% if !session[:user_id].nil? %>  
                     <input class="btn btn-default btn-md" onclick="change(<%= session[:user_id] %>,<%= post.id %>)" type="button" value="<%= stat %>" id="like_button"></input>
+                  <% end %>  
                   </div>
                 </div>
           </div>
