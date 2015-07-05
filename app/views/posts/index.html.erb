@@ -139,7 +139,7 @@ $.ajax({url: "/api/check",
                     <h3 class="size"><a href="/profile/<%= User.find(session[:user_id]).username %>"><%= User.find(session[:user_id]).username %></a></h3>
                     <p>Total Views : <%= User.find(session[:user_id]).views %></p>
                     
-                    Total likes : <%= likes=0 %>
+                    Total likes : <%= @likes %>
                 </div>
            </div>
                 <div class="clearfix"></div>
