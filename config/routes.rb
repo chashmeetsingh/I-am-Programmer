@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "posts#index"
+  root to: "auth#login"
   resources :posts
   get '/api/like/:user_id/:post_id' => 'api#like'
   get '/api/unlike/:user_id/:post_id' => 'api#unlike'

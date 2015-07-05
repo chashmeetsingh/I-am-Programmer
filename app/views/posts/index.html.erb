@@ -61,7 +61,7 @@
                     <% else %>
                       <% stat="Like" %> 
                     <% end %>      
-                    <input class="btn btn-default btn-md" onload="load(<%= session[:user_id] %>,<%= post.id %>)" onclick="change(<%= session[:user_id] %>,<%= post.id %>)" type="button" value="<%= stat %>" id="like_button"></input>
+                    <input class="btn btn-default btn-md" onclick="change(<%= session[:user_id] %>,<%= post.id %>)" type="button" value="<%= stat %>" id="like_button"></input>
                   </div>
                 </div>
           </div>
