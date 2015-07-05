@@ -36,65 +36,6 @@
   };
 </script>
 
-<script>
-function checkLike(userid,postid) {
-//     var butt = document.getElementById("like_button");
-//     alert(JSON.stringify(userid)+" "+postid);
-//     if (butt.value=="Like"){
-//       $.ajax("/api/check",
-//             {
-//                 user_id: userid,
-//                 post_id: postid
-//             },
-//             function(data, status){
-//                 alert("Data: " + data + "\nStatus: " + status);
-//                 if(data==1){
-//                   alert('u');
-//                    butt.value = "Unlike";
-//                 }
-//               }
-//               )};
-// }
-//   function new(userid,postid){
-//     //var butt = document.getElementById("like_button");
-//     alert(JSON.stringify(userid)+" "+postid);
-//     if (butt.value=="Like"){
-//       $.get("/api/check",
-//             {
-//                 user_id: userid,
-//                 post_id: postid
-//             },
-//             function(data, status){
-//                 alert("Data: " + data + "\nStatus: " + status);
-//                 if(data==1){
-//                   alert('u');
-//                    butt.value = "Unlike";
-//                 }
-//               }
-//               )};
-$.ajax({url: "/api/check", 
-        type: 'GET',
-        data:{
-          user_id: userid,
-          post_id: postid
-        },
-        processData: false,
-        async: false,
-        success: function(result){
-         //   alert(result);
-         if(data == 0)
-          return "Like";
-         else 
-          return "Unlike";
-        },
-        error: function(result){
-            alert('yo');
-        }
-  });
-}
-
-</script>
-
 <div class="row"> 
     <div class="col-xs-6">
     <% @posts.each do |post| %>
