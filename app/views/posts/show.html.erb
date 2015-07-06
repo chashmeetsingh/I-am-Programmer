@@ -3,10 +3,11 @@
   <strong>Title:</strong>
   <%= @post.title %>
 </p>
-
+<% link = @post.image.to_s.split('/').last %>
+<% newlink = 'http://chashmeetsingh.com/iamprogrammer/post/image/'+@post.id.to_s+'/'+link %>
 <p>
   <strong>Image:</strong>
-  <%= image_tag(@post.image.profile_size.url) %>
+  <%= image_tag  newlink, size: '250x300'  %>
 </p>
 
 <p>

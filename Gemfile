@@ -27,7 +27,7 @@ gem 'country-select'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'puma'
 gem 'carrierwave-ftp', :require => 'carrierwave/storage/ftp' # FTP only
-
+gem 'rails_12factor'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem "paperclip"

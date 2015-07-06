@@ -6,5 +6,14 @@ class ProfileController < ApplicationController
 			@user1.views += 1
 			@user1.save
 		end
+		@user1 = User.find_by(:username=>params[:username])
+		posts = Post.where(:user_id=>user.id)
+        @likes=0
+        posts.each do |po|
+          like = Like.where(:post_id=>po.id)
+          if like  
+            @likes += like.count
+          end
+        end
 	end
 end
