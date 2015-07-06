@@ -69,7 +69,7 @@
                     <% end %>      
                   <% if !session[:user_id].nil? %> 
                   <script type="text/javascript">
-                    document.getElementById('like_button').id = 'like_button'+posy.id.toString();
+                    document.getElementById('like_button').id = 'like_button'+post.id.toString();
                   </script>
                     <input class="btn btn-default btn-md" onclick="change(<%= session[:user_id] %>,<%= post.id %>)" type="button" value="<%= stat %>" id="like_button"></input>
                   <% end %>  
