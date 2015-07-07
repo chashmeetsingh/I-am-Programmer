@@ -7,7 +7,7 @@ class ProfileController < ApplicationController
 			@user1.save
 		end
 		@user1 = User.find_by(:username=>params[:username])
-		posts = Post.where(:user_id=>user.id)
+		posts = Post.where(:user_id=>User.find_by(:username=>params[:username]).id)
         @likes=0
         posts.each do |po|
           like = Like.where(:post_id=>po.id)
