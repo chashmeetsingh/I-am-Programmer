@@ -65,7 +65,7 @@
                   <div class="col-xs-5">  
                     <%= post.hash_tag %><br>  
                     <a href="/profile/<%= post.user.username %>">@<%= post.user.username %></a><br>
-                    <% if Like.where(:post_id=>post.id,:user_id=>post.user.id) %>
+                    <% if Like.find_by(:post_id=>post.id,:user_id=>post.user.id) %>
                       <% stat="Unlike" %>
                     <% else %>
                       <% stat="Like" %>
