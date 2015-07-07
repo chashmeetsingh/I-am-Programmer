@@ -1,4 +1,4 @@
-// Just an example 
+# Just an example 
 
 CarrierWave.configure do |config|
   config.ftp_host = "ftp.example.com"
