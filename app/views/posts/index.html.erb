@@ -58,7 +58,7 @@
                     <a href="<%= post_url(post) %>">
                       <% link = post.image.to_s.split('/').last %>
                       <% newlink = 'http://chashmeetsingh.com/iamprogrammer/post/image/'+post.id.to_s+'/'+link %>
-                        <%= image_tag  newlink, size: '250x300' %>
+                        <%= image_tag  newlink, size: '300x300' %>
                     </a>
                   </div>
                   <div class="col-xs-1"></div>
@@ -66,10 +66,10 @@
                     <%= post.hash_tag %><br>  
                     <a href="/profile/<%= post.user.username %>">@<%= post.user.username %></a><br>
                    <% if !session[:user_id].nil? %> 
-                        <% if Like.find_by(:post_id=>post.id,:user_id=>session[:user_id] %>
-                          <% stat="Unlike" %>
+                        <% if Like.find_by(:post_id=>post.id,:user_id=>session[:user_id]) %>
+                          <% stat = "Unlike" %>
                         <% else %>
-                          <% stat="Like" %>
+                          <% stat = "Like" %>
                         <% end %>
                     <% end %>
                   <% if !session[:user_id].nil? %>  
