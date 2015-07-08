@@ -72,8 +72,9 @@
                           <% stat = "Like" %>
                         <% end %>
                     <% end %>
-                  <% if !session[:user_id].nil? %>  
-                    <input class="btn btn-default btn-md" onclick="change(<%= User.find(session[:user_id]).id %>,<%= post.id %>,<%= index %>)" type="button" value="<%= stat %>" id="like_button<%= index %>" ></input>
+                  <% if !session[:user_id].nil? %>
+                  <% count = Like.where(:post_id=>post.id).count %>  
+                    <input class="btn btn-default btn-md" onclick="change(<%= User.find(session[:user_id]).id %>,<%= post.id %>,<%= index %>)" type="button" value="<%= stat %>" id="like_button<%= index %>" ><span class="badge badge-success"><%= count %></span></input>
                   <% end %>  
                   </div>
                 </div>

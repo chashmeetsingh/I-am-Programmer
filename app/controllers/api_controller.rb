@@ -1,6 +1,6 @@
 class ApiController < ApplicationController
 	def check
-		if Like.find_by(:user_id=>params[:user_id],:post_id=>params[:post_id])
+		if Like.find_by(:user_id=>session[:user_id],:post_id=>params[:post_id])
 			render json: 1
 		else
 			render json: 0	
@@ -8,7 +8,7 @@ class ApiController < ApplicationController
 	end
 
 	def like
-		like=Like.create(:user_id=>params[:user_id],:post_id=>params[:post_id])
+		like=Like.create(:user_id=>session[:user_id],:post_id=>params[:post_id])
 		if like.save
 			render text: "Liked"
 		else
@@ -17,7 +17,7 @@ class ApiController < ApplicationController
 	end
 
 	def unlike
-		if Like.find_by(:user_id=>params[:user_id],:post_id=>params[:post_id]).destroy
+		if Like.find_by(:user_id=>session[:user_id],:post_id=>params[:post_id]).destroy
 			render text: "Unliked"
 		else
 			render text: "Could not unlike"

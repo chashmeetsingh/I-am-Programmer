@@ -50,6 +50,9 @@ class AuthController < ApplicationController
     if user.update_attributes(:password => params[:password]) && params[:password]==params[:password_check]
       flash[:notice] = "Password Changed Successfully !!"
     else
+      user.errors.each do |f,x|
+        puts f,x
+      end
       flash[:notice] = "Passwords do not match"
     end
     redirect_to '/settings'

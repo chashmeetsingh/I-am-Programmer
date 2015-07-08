@@ -1,18 +1,19 @@
+<div>
+	<p>
+	  <strong>Title:</strong>
+	  <%= @post.title %>
+	</p>
+	<% link = @post.image.to_s.split('/').last %>
+	<% newlink = 'http://chashmeetsingh.com/iamprogrammer/post/image/'+@post.id.to_s+'/'+link %>
+	<p>
+	  <strong>Image:</strong>
+	  <%= image_tag  newlink, size: '300x300'  %>
+	</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-<% link = @post.image.to_s.split('/').last %>
-<% newlink = 'http://chashmeetsingh.com/iamprogrammer/post/image/'+@post.id.to_s+'/'+link %>
-<p>
-  <strong>Image:</strong>
-  <%= image_tag  newlink, size: '250x300'  %>
-</p>
+	<p>
+	  <strong>Hash Tag:</strong>
+	  <%= @post.hash_tag %>
+	</p>
 
-<p>
-  <strong>Hash Tag:</strong>
-  <%= @post.hash_tag %>
-</p>
-
-<%= link_to 'Back', posts_path %>
+	<%= link_to 'Back', posts_path %>
+</div>
