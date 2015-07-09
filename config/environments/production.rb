@@ -76,7 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = { :host => "http://improgrammer.herokuapp.com" }
+  config.action_mailer.default_url_options = { :host => "improgrammer.herokuapp.com" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
@@ -89,6 +89,7 @@ Rails.application.configure do
    :user_name            => ENV['mail_username'],
    :password             => ENV['mail_password'],
    :authentication       => "plain",
-  :enable_starttls_auto => true
+   :enable_starttls_auto => true,
+   :domain => "heroku.com"
   }
 end
