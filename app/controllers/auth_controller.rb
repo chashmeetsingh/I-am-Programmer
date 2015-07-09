@@ -3,9 +3,15 @@ class AuthController < ApplicationController
   before_action :confirmed_login , :except=>[:login,:signup,:attempt_login,:attempt_signup]
 
   def login
+    if !session[:user_id].nil?
+      redirect_to '/posts/index'
+    end
   end
 
   def signup
+    if !session[:user_id].nil?
+      redirect_to '/posts/index'
+    end
   end
 
   def attempt_signup
@@ -17,6 +23,8 @@ class AuthController < ApplicationController
 
   	if user.save
       flash[:notice] = "Signed Up successfully !"
+      # Sends email to user when user is created.
+      ApplicationMailer.verify_email(user).deliver_now
   		redirect_to(:action=>'login')
   	else
   		flash[:notice] = user.errors.full_messages

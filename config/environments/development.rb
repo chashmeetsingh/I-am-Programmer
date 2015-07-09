@@ -38,4 +38,16 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.delivery_method = :smtp
+  # SMTP settings for mail
+  config.action_mailer.smtp_settings = {
+    enable_starttls_auto: true,
+   :address              => "mail.infomaniak.ch",
+   :port                 => 587,
+   :user_name            => ENV['mail_username'],
+   :password             => ENV['mail_password'],
+   :authentication       => "plain",
+  }
 end

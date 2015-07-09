@@ -65,13 +65,11 @@
                   <div class="col-xs-5">  
                     <%= post.hash_tag %><br>  
                     <a href="/profile/<%= post.user.username %>">@<%= post.user.username %></a><br>
-                   <% if !session[:user_id].nil? %> 
                         <% if Like.find_by(:post_id=>post.id,:user_id=>session[:user_id]) %>
                           <% stat = "Unlike" %>
                         <% else %>
                           <% stat = "Like" %>
                         <% end %>
-                    <% end %>
                   <% if !session[:user_id].nil? %>
                   <% count = Like.where(:post_id=>post.id).count %>  
                     <input class="btn btn-default btn-md" onclick="change(<%= User.find(session[:user_id]).id %>,<%= post.id %>,<%= index %>)" type="button" value="<%= stat %>" id="like_button<%= index %>" ><span class="badge badge-success"><%= count %></span></input>
