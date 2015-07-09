@@ -97,7 +97,7 @@
 
                 </div>
                 <div class="col-xs-8 ls_profile_info">
-                    <h3 class="size"><a href="/profile/<%= User.find(session[:user_id]).username %>"><%= User.find(session[:user_id]).username %></a></h3>
+                    <h3 class="size"><a style="color:white" href="/profile/<%= User.find(session[:user_id]).username %>"><%= User.find(session[:user_id]).username %></a></h3>
                     <p>Total Views : <%= User.find(session[:user_id]).views %></p>
                     
                     Total likes : <%= @likes %>
