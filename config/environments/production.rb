@@ -90,6 +90,6 @@ Rails.application.configure do
    :password             => ENV['mail_password'],
    :authentication       => "plain",
    :enable_starttls_auto => true,
-   :domain => "heroku.com"
+   :domain => "improgrammer.heroku.com"
   }
 end
