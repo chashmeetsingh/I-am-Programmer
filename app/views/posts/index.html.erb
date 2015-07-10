@@ -46,7 +46,6 @@
 
 
 
-<div class="row"> 
     <div class="col-xs-6">
     <% @posts.reverse.each_with_index do |post,index| %>
         <div class=" panel panel-primary">
@@ -59,7 +58,7 @@
                     <a href="<%= post_url(post) %>">
                       <% link = post.image.to_s.split('/').last %>
                       <% newlink = 'http://chashmeetsingh.com/iamprogrammer/post/image/'+post.id.to_s+'/'+link %>
-                        <%= image_tag  newlink, size: '300x300' %>
+                        <%= image_tag  newlink, size: '300x300',class: "img-responsive" %>
                     </a>
                   </div>
                   <div class="col-xs-1"></div>
@@ -80,24 +79,27 @@
           </div>
         </div> <% end %>
     </div>
-    <div class="col-xs-1"></div>
+<div class="row"> 
+    <div class="col-xs-2"></div>
+    
     <% if !session[:user_id].nil? %>
-    <div class="span3 col-xs-5">
+    <div class="span3 col-xs-4">
      <div class="side-bar"> 
            <div class="ls_profile ls_blue">
                <div> 
                <div class="col-xs-4">
+                
                <% if User.find(session[:user_id]).avatar.present? %>
                   <% link = User.find(session[:user_id]).avatar.to_s.split('/').last %>
                   <% newlink = 'http://chashmeetsingh.com/iamprogrammer/user/avatar/'+User.find(session[:user_id]).id.to_s+'/'+link %>
-                  <%= image_tag  newlink, size: '100x100' %>
+                  <%= image_tag  newlink, size: '100x100', class: "img-responsive" %>
                 <% else %>
                   <%= image_tag 'http://blog.skilledup.com/wp-content/authors/default.gif' , size: '100x100' %>
                 <% end %>
 
                 </div>
                 <div class="col-xs-8 ls_profile_info">
-                    <h3 class="size"><a style="color:white" href="/profile/<%= User.find(session[:user_id]).username %>"><%= User.find(session[:user_id]).username %></a></h3>
+                    <h3 class="size"><a class="img-responsive" style="color:white" href="/profile/<%= User.find(session[:user_id]).username %>"><%= User.find(session[:user_id]).username %></a></h3>
                     <p>Total Views : <%= User.find(session[:user_id]).views %></p>
                     
                     Total likes : <%= @likes %>
@@ -106,6 +108,10 @@
                 <div class="clearfix"></div>
            </div>
        </div>
+       <div class="fb-like" data-href="https://www.facebook.com/pages/I-am-Programmer/130346597300032" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div><br><br>
+<a href="https://twitter.com/CChashmeetsingh" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @CChashmeetsingh</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script><br><br>
     </div>
     <% end %>
+
 </div>    
