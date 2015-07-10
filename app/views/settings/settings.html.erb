@@ -4,7 +4,7 @@
           <% if User.find(session[:user_id]).avatar.present? %>
                   <% link = User.find(session[:user_id]).avatar.to_s.split('/').last %>
                   <% newlink = 'http://chashmeetsingh.com/iamprogrammer/user/avatar/'+User.find(session[:user_id]).id.to_s+'/'+link %>
-                  <%= image_tag  newlink, size: '100x100', class: "img-responsive" %>
+                  <%= image_tag  newlink, class: "img-responsive" %>
                 <% else %>
                   <%= image_tag 'http://blog.skilledup.com/wp-content/authors/default.gif' , size: '200x200' %>
                 <% end %><br>
