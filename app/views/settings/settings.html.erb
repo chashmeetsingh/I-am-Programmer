@@ -17,9 +17,9 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
-          <div class="row mar40">
+          <div class="row mar40" style="margin-top: 40px;">
           <div class="col-lg-3"></div>
-            <div class="col-lg-4">
+            <div class="col-lg-4" >
               <h3>Profile Picture</h3>
                 <% if User.find(session[:user_id]).avatar.present? %>
                         <% link = User.find(session[:user_id]).avatar.to_s.split('/').last %>
@@ -42,7 +42,7 @@
     <div role="tabpanel" class="tab-pane" id="profile">
       <div class="row">
         <div class="col-lg-4 col-xs-3"></div>
-          <div class="col-lg-4 col-xs-3 mar40"> 
+          <div class="col-lg-4 col-xs-3 mar40" style="margin-top: 40px;"> 
             <%= form_tag ('/auth/update') do %>
                   <%= label_tag :full_name , "Full Name" %>
                   <% if User.find(session[:user_id]).full_name.nil? %>
@@ -74,7 +74,7 @@
     </div>
     <div role="tabpanel" class="tab-pane" id="messages">
       <div class="col-lg-4 mar40"></div>
-      <div class="col-lg-4 mar80 well">
+      <div class="col-lg-4 mar80 well" style="margin-top: 40px;">
         <form action="/auth/attempt_change" accept-charset="UTF-8" method="post">
               <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="qs5IuO5OPxuoSJe5VHK9+iN50NOqjRSVje8z7/yp+zjaV7qghkwhnbYJ6eM1y3BB8BV9qHmhWP5JtOHEKJCyLw==" />
               <label class="pad-27" for="password">New Password</label>
