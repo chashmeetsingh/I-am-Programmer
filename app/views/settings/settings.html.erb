@@ -29,7 +29,7 @@
                         <%= image_tag 'http://blog.skilledup.com/wp-content/authors/default.gif' , size: '200x200' %>
                       <% end %><br>
             </div>
-            <div class="col-lg-5 mar18">          
+            <div class="col-lg-5 mar18" style="margin-top: 15px;">          
               <%= form_for :user,url: '/auth/profile_pic' do |f| %>            
                 <h4>Upload Image</h4>
                 <%= f.file_field :avatar, onchange: "loadFile(event)", class: "mar13" %>
