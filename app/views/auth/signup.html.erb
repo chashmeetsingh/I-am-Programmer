@@ -1,8 +1,19 @@
-Signup
-
-<%= form_for :user,url:{action: "attempt_signup"} do |f| %>
-  Username:<%= f.text_field :username%><br><br>
-  Email:<%= f.email_field :email %><br><br>
-  Password:<%= f.password_field :password %><br><br>
-  <%= f.submit "Sign Up", :class => "btn btn-success" %>
-<% end %>
+<div class = "container">
+			<div class="row">
+				<div class="col-lg-3"></div>
+				<div class="col-lg-6">
+					<div class="wrapper">
+						<form action="/auth/attempt_signup" accept-charset="UTF-8" method="post" name="Login_Form" class="form-signin">
+							<h3 class="form-signin-heading">Welcome! Please Create an Account</h3>
+							  <hr class="colorgraph"><br>
+							  <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="CXr8BOXxBNG07uYFOqfP/0/FsbN73iFfqPaTw42ozzS5JLXYMRswyJ3t1naUu8Zbd36gCgbIa7/NJER0W/P8mQ==" />
+							  <input type="text" class="form-control" name="user[username]" id="user_username" placeholder="Username" required="" autofocus="" /><BR>
+							  <input type="email" class="form-control" name="user[email]" id="user_email" placeholder="Email ID" required=""/><br>     		  
+							  <input type="password" name="user[password]" id="user_password" class="form-control" placeholder="Password" required="" />
+							  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
+						</form>			
+					</div>
+				</div>
+				<div class="col-lg-3"></div>
+			</div>
+		</div>

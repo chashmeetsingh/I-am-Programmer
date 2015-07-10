@@ -1,9 +1,22 @@
-Log In
-  
-<%= form_tag("/auth/attempt_login") do %>
-  <%= label_tag(:username, "Username") %>
-  <%= text_field_tag(:username) %><br>
-  <%= label_tag(:password, "Password") %>
-  <%= password_field_tag(:password) %><br>
-  <%= submit_tag "Log In", :class => "btn btn-danger" %>
-<% end %>
+
+<div class = "container">
+			<div class="row">
+				<div class="col-lg-3"></div>
+				<div class="col-lg-6">
+					<div class="wrapper">
+						<form action="/auth/attempt_login" name="Login_Form" accept-charset="UTF-8" method="post" class="form-signin">
+							<h3 class="form-signin-heading">Welcome Back ! Please Login</h3>
+							  <hr class="colorgraph"> <br>
+							  <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="wnRc7OUEtD+ozCOwX7iRotV+GGZPtY7Ij7LoS5gomZ5yKhUwMe6AJoHPE8PxpJgG7cUJ3zKjxCjqYD/8TnOqMw==" />
+							  <label class="input-group" type="email" class="form-control" name="email_id" placeholder="Email ID" required="" autofocus="" for="username">Username</label>
+							  <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" id="username" />
+							  <label class="input-group" for="password" class="input-group" type="email" class="form-control" name="email_id" placeholder="Email ID" required="" autofocus="">Password</label>
+							  <input type="password" class="form-control" name="password" placeholder="Password" required="" id="password" />
+							 
+							  <button class="btn btn-lg btn-success btn-block"  name="Submit" value="Log In" type="Submit">Log In</button>  			
+						</form>			
+					</div>
+				</div>
+				<div class="col-lg-3"></div>
+			</div>
+		</div>
