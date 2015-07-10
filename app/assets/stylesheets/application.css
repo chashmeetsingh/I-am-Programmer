@@ -105,3 +105,27 @@ input[type="password"] {
   background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
 }
 
+.pa {
+  padding-left: 200px;
+  padding-top: 50px;
+}
+
+.mar15{
+  margin-top: 10px;
+}
+
+.mar18{
+  margin-top: 18px;
+}
+
+.mar40{
+  margin-top: 40px;
+}
+
+.mar13{
+  margin-bottom: 13px;
+}
+
+.mar80{
+  margin-top: 80px;
+}

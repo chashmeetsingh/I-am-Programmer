@@ -1,51 +1,91 @@
+<script type="text/javascript">
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+</script>
 
+<div>
 
-          <%= "Profile Picture" %>
-          <% if User.find(session[:user_id]).avatar.present? %>
-                  <% link = User.find(session[:user_id]).avatar.to_s.split('/').last %>
-                  <% newlink = 'http://chashmeetsingh.com/iamprogrammer/user/avatar/'+User.find(session[:user_id]).id.to_s+'/'+link %>
-                  <%= image_tag  newlink, size: '300x300' %>
-                <% else %>
-                  <%= image_tag 'http://blog.skilledup.com/wp-content/authors/default.gif' , size: '200x200' %>
-                <% end %><br>
-          <%= form_for :user,url: '/auth/profile_pic' do |f| %>            
-            <%= f.label :avatar, "Upload Image" %>
-            <%= f.file_field :avatar %><br>
-            <%= f.submit 'Update Picture', :class => "btn btn-info" %>
-          <% end %> 
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Profile Pic</a></li>
+    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Settings</a></li>
+    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Password Change</a></li>
+  </ul>
 
-
-          <%= form_tag ('/auth/update') do %>
-              <%= label_tag :full_name , "Full Name" %>
-              <% if User.find(session[:user_id]).full_name.nil? %>
-                <%= text_field_tag :full_name %><br>
-              <% else %>
-                  <%= text_field_tag :full_name , User.find(session[:user_id]).full_name %><br>
-              <% end %>    
-              <%= label_tag :email, "Email Id" %>
-              <%= email_field_tag :email , User.find(session[:user_id]).email %><br>
-              <%= label_tag :country , "Location" %>
-              <%= render 'form' %><br>
-              <%= label_tag :about , "About/Bio" %>
-              <% if User.find(session[:user_id]).full_name.nil? %>
-                <%= text_field_tag :about %><br>
-              <% else %>
-                  <%= text_field_tag :about , User.find(session[:user_id]).about %><br>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+          <div class="row mar40">
+          <div class="col-lg-3"></div>
+            <div class="col-lg-4">
+              <h3>Profile Picture</h3>
+                <% if User.find(session[:user_id]).avatar.present? %>
+                        <% link = User.find(session[:user_id]).avatar.to_s.split('/').last %>
+                        <% newlink = 'http://chashmeetsingh.com/iamprogrammer/user/avatar/'+User.find(session[:user_id]).id.to_s+'/'+link %>
+                        <%= image_tag  newlink, size: '300x280' %>
+                      <% else %>
+                        <%= image_tag 'http://blog.skilledup.com/wp-content/authors/default.gif' , size: '200x200' %>
+                      <% end %><br>
+            </div>
+            <div class="col-lg-5 mar18">          
+              <%= form_for :user,url: '/auth/profile_pic' do |f| %>            
+                <h4>Upload Image</h4>
+                <%= f.file_field :avatar, onchange: "loadFile(event)", class: "mar13" %>
+                <img id="output" height="200" width="230" alt="Image Preview"/><br>
+                <%= f.submit 'Update Picture', :class => "btn btn-primary mar15" %>
               <% end %>
-              <%= label_tag :website , "Website" %>
-              <% if User.find(session[:user_id]).full_name.nil? %>
-                <%= text_field_tag :website %><br>
-              <% else %>
-                  <%= text_field_tag :website , User.find(session[:user_id]).website %><br>
-              <% end %>
-              <%= submit_tag 'Update Details', :class => "btn btn-danger" %>
-            <% end %>
+            </div>  
+          </div>    
+    </div>
+    <div role="tabpanel" class="tab-pane" id="profile">
+      <div class="row">
+        <div class="col-lg-4 col-xs-3"></div>
+          <div class="col-lg-4 col-xs-3 mar40"> 
+            <%= form_tag ('/auth/update') do %>
+                  <%= label_tag :full_name , "Full Name" %>
+                  <% if User.find(session[:user_id]).full_name.nil? %>
+                    <%= text_field_tag :full_name %><br>
+                  <% else %>
+                      <%= text_field_tag :full_name , User.find(session[:user_id]).full_name %><br>
+                  <% end %>    
+                  <%= label_tag :email, "Email Id" %>
+                  <%= email_field_tag :email , User.find(session[:user_id]).email %><br>
+                  <%= label_tag :country , "Location" %>
+                  <%= render 'form' %><br>
+                  <%= label_tag :about , "About/Bio" %>
+                  <% if User.find(session[:user_id]).full_name.nil? %>
+                    <%= text_field_tag :about %><br>
+                  <% else %>
+                      <%= text_field_tag :about , User.find(session[:user_id]).about %><br>
+                  <% end %>
+                  <%= label_tag :website , "Website" %>
+                  <% if User.find(session[:user_id]).full_name.nil? %>
+                    <%= text_field_tag :website %><br>
+                  <% else %>
+                      <%= text_field_tag :website , User.find(session[:user_id]).website %><br>
+                  <% end %>
+                  <%= submit_tag 'Update Details', :class => "btn btn-danger" %>
+                <% end %>
+          </div>
+          <div class="col-lg-4 col-xs-6"></div>
+        </div>      
+    </div>
+    <div role="tabpanel" class="tab-pane" id="messages">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4 mar80 well">
+        <form action="/auth/attempt_change" accept-charset="UTF-8" method="post">
+              <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="qs5IuO5OPxuoSJe5VHK9+iN50NOqjRSVje8z7/yp+zjaV7qghkwhnbYJ6eM1y3BB8BV9qHmhWP5JtOHEKJCyLw==" />
+              <label class="pad-27" for="password">New Password</label>
+              <input type="password" class="input-group form-control" name="password" id="password" placeholder="New Password" required="" autofocus=""/><br>
+              <label class="pad-10" for="password_check">Retype Password</label>
+              <input type="password" name="password_check" id="password_check" class="input-group form-control" placeholder="Re-type Password" required="" autofocus=""/><br>
+              <input type="submit" name="commit" value="Change Password" class="btn btn-success" />
+        </form>  
+      </div>
+      <div class="col-lg-4"></div>
+    </div>
+  </div>
 
-
-            <%= form_tag("/auth/attempt_change") do %>
-              <%= label_tag :password, "New Password" , :class => 'pad-27' %>
-              <%= password_field_tag :password %><br>
-              <%= label_tag :password_check, "Retype Password", :class => 'pad-10'  %>
-              <%= password_field_tag(:password_check) %><br>
-              <%= submit_tag "Save Password", :class => "btn btn-success" %>
-            <% end %>  
+</div> 

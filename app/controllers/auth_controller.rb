@@ -1,6 +1,7 @@
 class AuthController < ApplicationController
   
   before_action :confirmed_login , :except=>[:login,:signup,:attempt_login,:attempt_signup]
+  
 
   def login
     if !session[:user_id].nil?
