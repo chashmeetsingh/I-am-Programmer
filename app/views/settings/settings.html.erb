@@ -11,7 +11,7 @@
           <%= form_for :user,url: '/auth/profile_pic' do |f| %>            
             <%= f.label :avatar, "Upload Image" %>
             <%= f.file_field :avatar %><br>
-            <%= f.submit 'Update Picture' %>
+            <%= f.submit 'Update Picture', :class => "btn btn-info" %>
           <% end %> 
 
 
@@ -38,7 +38,7 @@
               <% else %>
                   <%= text_field_tag :website , User.find(session[:user_id]).website %><br>
               <% end %>
-              <%= submit_tag 'Update Details' %>
+              <%= submit_tag 'Update Details', :class => "btn btn-danger" %>
             <% end %>
 
 
