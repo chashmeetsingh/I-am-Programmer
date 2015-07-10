@@ -32,8 +32,8 @@
             <div class="col-lg-5 mar18" style="margin-top: 15px;">           
               <%= form_for :user,url: '/auth/profile_pic' do |f| %>            
                 <h4>Upload Image</h4>
-                <%= f.file_field :avatar, onchange: "loadFile(event)", class: "mar13", style:"margin-top: 15px;" %>
-                <img id="output" height="200" width="230" alt="Image Preview" style="margin-top: 15px;"/><br>
+                <%= f.file_field :avatar, onchange: "loadFile(event)", class: "mar13" %>
+                <img id="output" height="200" width="230" alt="Image Preview" style="margin-bottom: 10px; margin-top: 15px;"/><br>
                 <%= f.submit 'Update Picture', :class => "btn btn-primary mar15" style="margin-top: 9px;"%>
               <% end %>
             </div>  
