@@ -58,7 +58,7 @@
                     <a href="<%= post_url(post) %>">
                       <% link = post.image.to_s.split('/').last %>
                       <% newlink = 'http://chashmeetsingh.com/iamprogrammer/post/image/'+post.id.to_s+'/'+link %>
-                        <%= image_tag  newlink, class: "img-responsive" %>
+                        <%= image_tag  newlink, size: "300x300",class: "img-responsive" %>
                     </a>
                   </div>
                   <div class="col-xs-1"></div>
