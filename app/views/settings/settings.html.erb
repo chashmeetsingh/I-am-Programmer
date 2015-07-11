@@ -42,29 +42,29 @@
     <div role="tabpanel" class="tab-pane" id="profile">
       <div class="row">
         <div class="col-lg-4 col-xs-3"></div>
-          <div class="col-lg-4 col-xs-3 mar40" style="margin-top: 40px;"> 
+          <div class="col-lg-4 col-xs-3 mar40 well" style="margin-top: 40px;"> 
             <%= form_tag ('/auth/update') do %>
                   <%= label_tag :full_name , "Full Name" %>
                   <% if User.find(session[:user_id]).full_name.nil? %>
-                    <%= text_field_tag :full_name %><br>
+                    <%= text_field_tag :full_name, "",class: "form-control input-group", placeholder: "Full Name", required:"",autofocus:"" %><br>
                   <% else %>
                       <%= text_field_tag :full_name , User.find(session[:user_id]).full_name %><br>
                   <% end %>    
                   <%= label_tag :email, "Email Id" %>
-                  <%= email_field_tag :email , User.find(session[:user_id]).email %><br>
+                  <%= email_field_tag :email , User.find(session[:user_id]).email,class: "form-control input-group", placeholder: "Full Name", required:"",autofocus:"" %><br>
                   <%= label_tag :country , "Location" %>
                   <%= render 'form' %><br>
                   <%= label_tag :about , "About/Bio" %>
                   <% if User.find(session[:user_id]).full_name.nil? %>
-                    <%= text_field_tag :about %><br>
+                    <%= text_field_tag :about , "",class: "form-control input-group", placeholder: "About", required:"",autofocus:""%><br>
                   <% else %>
-                      <%= text_field_tag :about , User.find(session[:user_id]).about %><br>
+                      <%= text_field_tag :about , User.find(session[:user_id]).about,class: "form-control input-group", placeholder: "About", required:"",autofocus:"" %><br>
                   <% end %>
                   <%= label_tag :website , "Website" %>
                   <% if User.find(session[:user_id]).full_name.nil? %>
-                    <%= text_field_tag :website %><br>
+                    <%= text_field_tag :website,"",class: "form-control input-group", placeholder: "Website", required:"",autofocus:"" %><br>
                   <% else %>
-                      <%= text_field_tag :website , User.find(session[:user_id]).website %><br>
+                      <%= text_field_tag :website , User.find(session[:user_id]).website,class: "form-control input-group", placeholder: "Website", required:"",autofocus:"" %><br>
                   <% end %>
                   <%= submit_tag 'Update Details', :class => "btn btn-danger" %>
                 <% end %>

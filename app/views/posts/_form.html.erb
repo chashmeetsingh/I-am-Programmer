@@ -10,20 +10,29 @@
       </ul>
     </div>
   <% end %>
+<div class="row">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4 well" style="margin-top: 40px;">
+    <h1 align= "center">New Post</h1>
+    <hr class="colorgraph">
+        <div class="field">
+          <%= f.label :title ,style: "margin-top: 10px;"%><br>
+          <%= f.text_field :title,class: "form-control input-group", placeholder: "Title", required:"",autofocus:"" %>
+        </div>
+        <div class="field">
+          <%= f.label :image ,style: " margin-top: 10px;" %><br>
+            <%= f.file_field :image,class: "form-control input-group", placeholder: "Post Image", required:"",autofocus:"" %>
+        </div>
+        <div class="field">
+          <%= f.label :hash_tag,style: " margin-top: 10px;" %><br>
+          <%= f.text_area :hash_tag,class: "form-control input-group", placeholder: "Hash tag", required:"",autofocus:"" , style: "margin-bottom:10px;" %>
+        </div>
+        <div class="actions">
+          <%= f.submit class: "btn btn-primary btn-md" %>
+        </div>
+      <% end %>
+      <%= link_to 'Back', posts_path, class: "btn btn-success btn-xs", style: "margin-top: 10px;" %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-      <%= f.file_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :hash_tag %><br>
-    <%= f.text_area :hash_tag %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+   </div>
+   <div class="col-lg-4"></div>
+</div>
